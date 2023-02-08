@@ -59,7 +59,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
                 else -> Log.e(
                     AuthenticationActivity.TAG,
-                    "\"Authenticate state that doesn't require any UI change $authenticateState"
+                    "\"Authenticate failed : $authenticateState"
                 )
             }
 
