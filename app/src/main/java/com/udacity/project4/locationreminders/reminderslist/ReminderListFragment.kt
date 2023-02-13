@@ -169,7 +169,8 @@ class ReminderListFragment : BaseFragment(), SharedPreferences.OnSharedPreferenc
         activity?.bindService(serviceIntent, foregroundOnlyServiceConnection, Context.BIND_AUTO_CREATE)
         
         binding.addReminderFAB.setOnClickListener {
-
+            activity?.intent!!.putExtra("title","")
+            activity?.intent!!.putExtra("description","")
             navigateToAddReminder()
         }
     }

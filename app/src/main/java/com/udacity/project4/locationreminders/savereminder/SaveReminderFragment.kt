@@ -46,14 +46,14 @@ class SaveReminderFragment : BaseFragment() {
 
     companion object {
         private const val TAG = "SaveReminderFragment"
-        private const val GEOFENCE_RADIUS_IN_METERS = 100f
+        const val GEOFENCE_RADIUS_IN_METERS = 100f
         private val REQUEST_LOCATION_PERMISSION = 1
         private const val LOCATION_PERMISSION_INDEX = 0
         private const val REQUEST_CODE_BACKGROUND = 201
         private const val REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE = 33
         private const val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = 34
         private const val BACKROUND_LOCATION_PERMISSION_INDEX = 1
-        private const val REQUEST_TURN_DEVICE_LOCATION_ON = 5
+        const val REQUEST_TURN_DEVICE_LOCATION_ON = 5
     }
     private val geofencePendingIntent: PendingIntent by lazy {
         val intent = Intent(requireContext(), GeofenceBroadcastReceiver::class.java)
@@ -69,7 +69,7 @@ class SaveReminderFragment : BaseFragment() {
     ): View? {
 //        binding =
 //            DataBindingUtil.inflate(inflater, R.layout.fragment_save_reminder, container, false)
-
+        val x = activity?.intent!!.putExtra("title","")
         val binding = DataBindingUtil.inflate<FragmentSaveReminderBinding>(
             inflater, R.layout.fragment_save_reminder, container, false
         ).apply {
@@ -83,7 +83,7 @@ class SaveReminderFragment : BaseFragment() {
                 )
                 setContent {
                     MaterialTheme {
-                        ReminderContent()
+                        ReminderContentData(_viewModel)
                     }
                 }
             }

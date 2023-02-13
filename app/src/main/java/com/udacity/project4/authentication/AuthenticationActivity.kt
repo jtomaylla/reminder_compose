@@ -59,7 +59,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
                 else -> Log.e(
                     AuthenticationActivity.TAG,
-                    "\"Authenticate failed : $authenticateState"
+                    "\"Authenticate state that doesn't require any UI change $authenticateState"
                 )
             }
 
@@ -92,8 +92,7 @@ class AuthenticationActivity : AppCompatActivity() {
                 Log.i(
                     AuthenticationActivity.TAG,
                     "Successfully signed in user " +
-                            "${FirebaseAuth.getInstance().currentUser?.displayName}!"
-)
+                            "${FirebaseAuth.getInstance().currentUser?.displayName}!")
                 val intent = Intent(this, RemindersActivity::class.java).apply {
                     Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
