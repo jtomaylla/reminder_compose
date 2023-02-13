@@ -362,6 +362,7 @@ fun IndeterminateCircularProgressIndicator(isDisplayed:Boolean) {
 
 @Composable
 fun ReminderContent(viewModel: SaveReminderViewModel,activity : Activity) {
+    val loading = viewModel.loading.value
     Surface {
         Column(
             Modifier
@@ -370,7 +371,7 @@ fun ReminderContent(viewModel: SaveReminderViewModel,activity : Activity) {
                 .fillMaxHeight(),) {
             ReminderTitle(viewModel,activity)
             ReminderDescription(viewModel,activity)
-            IndeterminateCircularProgressIndicator(isDisplayed = false)
+            IndeterminateCircularProgressIndicator(isDisplayed = loading)
             Row(horizontalArrangement = Arrangement.Start){
                 SelectLocation(viewModel)
                 SelectedLocation(viewModel)

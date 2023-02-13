@@ -47,6 +47,7 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
         showLoading.value = true
         loading.value = true
         viewModelScope.launch {
+            delay(5000)
             dataSource.saveReminder(
                 ReminderDTO(
                     reminderData.title,
